@@ -2,19 +2,21 @@
 #define PLANILLA_H
 
 #include "empleado.h"
-#include <vector>
+#include <map>
 
 using namespace std;
 
 class planilla {
 
-    vector<empleado *> empleados;
+    empleado *empleadoRaiz;
+    map<int, empleado*> indiceEmpleados;
 
     public:
     planilla();
     ~planilla();
 
     void agregarEmpleado(empleado *nuevoEmpleado);
+    empleado obtenerEmpleado(int idBuscado); 
 
     friend istream& operator >> (istream &o, planilla *planilla);
     friend ostream& operator << (ostream &o, const planilla *planilla);

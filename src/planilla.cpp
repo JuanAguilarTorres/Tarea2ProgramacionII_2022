@@ -8,24 +8,31 @@ planilla::planilla() {
 }
 
 planilla::~planilla() {
-    for (empleado *empleado : this->empleados)
-    {
-        delete empleado;
-    }
+    delete this->empleadoRaiz;
 }
 
 void planilla::agregarEmpleado(empleado *nuevoEmpleado) {
-    this->empleados.push_back(nuevoEmpleado);
+    int idSupervisor = nuevoEmpleado->ObtenerIdSupervisor();
+    int idEmpleado = nuevoEmpleado->ObtenerIdEmpleado();
+
+    if ( (idSupervisor == 1) && (idEmpleado == 1) ) 
+    {
+        this->empleadoRaiz = nuevoEmpleado;
+        this->indiceEmpleados.insert(std::pair<int, empleado* >(idEmpleado, nuevoEmpleado));
+
+        return;
+    }
+
+    empleado *supervisor = this->indiceEmpleados.at(idSupervisor);
+    supervisor->insertarSub(nuevoEmpleado);
+    this->indiceEmpleados.insert(std::pair<int, empleado* >(idEmpleado, nuevoEmpleado));
 }
 
 ostream& operator << (ostream &o, const planilla *planilla)
 {
-    for (empleado *empleado : planilla->empleados)
-    {
-        o << empleado << endl;
-    }
-
-    return o;
+    //for (int indice = 1; indice == ; indice++) {
+    
+    //}
 }
 
 istream& operator >> (istream &i, planilla *planilla)
@@ -34,9 +41,7 @@ istream& operator >> (istream &i, planilla *planilla)
     string linea;
 
     while (std::getline(i, linea)) {
-        // Mientras el getline obtenga alguna línea,
-        // procesar línea
-
+        
         std::istringstream streamLinea(linea);
 
         empleado *nuevoEmpleado = new empleado();

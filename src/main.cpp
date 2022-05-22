@@ -17,7 +17,7 @@ int main() {
 
     if (!archivoPrueba.is_open())
     {
-        std::cerr << "Error abriendo archivo de prueba.txt" << std::endl;
+        std::cerr << "Error abriendo intento.txt" << std::endl;
         return -1;
     }
 
