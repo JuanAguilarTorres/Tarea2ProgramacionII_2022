@@ -23,9 +23,19 @@ int main() {
 
     archivoPrueba >> laPlanilla;
 
-    cout << "Lista de empleados: " << endl << laPlanilla;
-
     archivoPrueba.close();
+    
+    ofstream ofs("Reporte.csv", std::ifstream::out);
+
+    if (!ofs.is_open())
+    {
+        std::cerr << "Error leyendo archivo Reporte.txt" << std::endl;
+        return -1;
+    }
+
+    ofs << "Reporte: " << endl << laPlanilla;
+
+    ofs.close();
 
     delete laPlanilla;
 }
