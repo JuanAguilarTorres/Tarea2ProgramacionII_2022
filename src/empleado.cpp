@@ -4,18 +4,28 @@ empleado::empleado() {
 
 }
 
-empleado::empleado(int idEmpleadoNuevo, string nombreNuevo, string apellidoNuevo, string emailNuevo, int tipoEmpleadoNuevo, int idSupervisorNuevo) {
-    this->idEmpleado = idEmpleadoNuevo;
-    this->nombre = nombreNuevo;
-    this->apellido = apellidoNuevo;
-    this->email = emailNuevo;
-    this->tipoEmpleado = tipoEmpleadoNuevo;
-    this->idSupervisor = idSupervisorNuevo;
+empleado::~empleado() {
+    for (empleado *subEmpleado : this->subEmpleados)
+    {
+        delete subEmpleado;
+    }
 }
 
-empleado::~empleado() {
-    
+int empleado::ObtenerIdSupervisor()
+{
+    return this->idSupervisor;
 }
+
+int empleado::ObtenerIdEmpleado()
+{
+    return this->idEmpleado;
+}
+
+void empleado::insertarSub(empleado *subEmpleado)
+{
+    this->subEmpleados.push_back(subEmpleado);
+}
+
 
 ostream& operator << (ostream &o, const empleado *empleado)
 {
