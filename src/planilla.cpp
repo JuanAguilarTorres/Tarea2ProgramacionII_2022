@@ -26,13 +26,18 @@ void planilla::agregarEmpleado(empleado *nuevoEmpleado) {
     empleado *supervisor = this->indiceEmpleados.at(idSupervisor);
     supervisor->insertarSub(nuevoEmpleado);
     this->indiceEmpleados.insert(std::pair<int, empleado* >(idEmpleado, nuevoEmpleado));
+    return;
+}
+
+empleado* planilla::obtenerEmpleado(int idBuscado){
+    empleado *empleadoEncontrado = this->indiceEmpleados.at(idBuscado);
+    return empleadoEncontrado;
 }
 
 ostream& operator << (ostream &o, const planilla *planilla)
 {
-    //for (int indice = 1; indice == ; indice++) {
-    
-    //}
+
+    return o;
 }
 
 istream& operator >> (istream &i, planilla *planilla)

@@ -16,7 +16,7 @@ class planilla {
     ~planilla();
 
     void agregarEmpleado(empleado *nuevoEmpleado);
-    empleado obtenerEmpleado(int idBuscado); 
+    empleado* obtenerEmpleado(int idBuscado); 
 
     friend istream& operator >> (istream &o, planilla *planilla);
     friend ostream& operator << (ostream &o, const planilla *planilla);
