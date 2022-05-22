@@ -12,12 +12,12 @@ int main() {
     
     planilla *laPlanilla = new planilla();
 
-    ifstream archivoPrueba("intento.txt", std::ifstream::in);
+    ifstream archivoPrueba("personas.txt", std::ifstream::in);
     
 
     if (!archivoPrueba.is_open())
     {
-        std::cerr << "Error abriendo intento.txt" << std::endl;
+        std::cerr << "Error abriendo personas.txt" << std::endl;
         return -1;
     }
 
