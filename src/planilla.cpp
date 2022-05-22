@@ -38,11 +38,12 @@ ostream& operator << (ostream &o, planilla *planilla)
 {
     int cantidad = planilla->indiceEmpleados.size(); 
 
-    for (int i = 1; i < cantidad; i++){
+    for (int i = 1; i <= cantidad; i++){
 
         empleado *empleadoActual = planilla->obtenerEmpleado(i);
+        empleado *supervisorActual = planilla->obtenerEmpleado(empleadoActual->ObtenerIdSupervisor());
 
-        o << empleadoActual << endl;
+        o << empleadoActual << "," << supervisorActual->ObtenerNombreCompleto() << endl;
     }
 
     return o;

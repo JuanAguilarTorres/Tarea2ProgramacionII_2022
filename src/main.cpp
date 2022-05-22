@@ -23,7 +23,7 @@ int main() {
 
     archivoPrueba >> laPlanilla;
 
-    cout << "Lista de empleados: " << laPlanilla;
+    cout << "Lista de empleados: " << endl << laPlanilla;
 
     archivoPrueba.close();
 

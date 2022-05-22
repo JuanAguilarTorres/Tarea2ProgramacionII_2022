@@ -23,6 +23,7 @@ class empleado {
 
     int ObtenerIdEmpleado();
     int ObtenerIdSupervisor();
+    string ObtenerNombreCompleto();
 
     void insertarSub(empleado *subEmpleado);
 
