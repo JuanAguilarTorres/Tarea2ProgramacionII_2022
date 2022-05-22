@@ -19,7 +19,7 @@ class planilla {
     empleado* obtenerEmpleado(int idBuscado); 
 
     friend istream& operator >> (istream &o, planilla *planilla);
-    friend ostream& operator << (ostream &o, const planilla *planilla);
+    friend ostream& operator << (ostream &o, planilla *planilla);
 };
 
 #endif

@@ -34,8 +34,16 @@ empleado* planilla::obtenerEmpleado(int idBuscado){
     return empleadoEncontrado;
 }
 
-ostream& operator << (ostream &o, const planilla *planilla)
+ostream& operator << (ostream &o, planilla *planilla)
 {
+    int cantidad = planilla->indiceEmpleados.size(); 
+
+    for (int i = 1; i < cantidad; i++){
+
+        empleado *empleadoActual = planilla->obtenerEmpleado(i);
+
+        o << empleadoActual << endl;
+    }
 
     return o;
 }
