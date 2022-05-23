@@ -8,18 +8,21 @@ using namespace std;
 
 class planilla {
 
-    istream *streamEntrada;
+    istream *streamPersonas;
+    istream *streamNomina;
+    istream *streamHoras;
     
     empleado *empleadoRaiz;
     map<int, empleado*> indiceEmpleados;
+    map<int, string*> indiceNomina;
+    map<int, string*> indiceHoras;
     
     public:
-    planilla(istream *streamEntradaNuevo);
+    planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, istream *streamHorasNuevo);
     ~planilla();
 
     void agregarEmpleado(empleado *nuevoEmpleado);
     empleado* obtenerEmpleado(int idBuscado);
-    string procesar();
 
     friend ostream& operator << (ostream &o, planilla *planilla);
 };

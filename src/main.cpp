@@ -19,9 +19,29 @@ int main() {
         return -1;
     }
 
-    planilla *laPlanilla = new planilla(&personas);
+    ifstream nomina("nomina.txt", std::ifstream::in);
+    
+
+    if (!nomina.is_open())
+    {
+        std::cerr << "Error abriendo nomina.txt" << std::endl;
+        return -1;
+    }
+
+    ifstream horastrabajadas("horastrabajadas.txt", std::ifstream::in);
+    
+
+    if (!horastrabajadas.is_open())
+    {
+        std::cerr << "Error abriendo horastrabajadas.txt" << std::endl;
+        return -1;
+    }
+
+    planilla *laPlanilla = new planilla(&personas, &nomina, &horastrabajadas);
 
     personas.close();
+    nomina.close();
+    horastrabajadas.close();
     
     ofstream ofs("Reporte.csv", std::ifstream::out);
 

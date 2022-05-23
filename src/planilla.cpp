@@ -3,10 +3,16 @@
 #include <sstream>
 #include <string>
 
-planilla::planilla(istream *streamEntradaNuevo) {
-    this->streamEntrada = streamEntradaNuevo;
+planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, istream *streamHorasNuevo) {
+    this->streamPersonas = streamPersonasNuevo;
+    this->streamNomina = streamNominaNuevo;
+    this->streamHoras = streamHorasNuevo;
+    
     string linea;
-    while (std::getline(*(this->streamEntrada), linea)) {
+    string palabra;
+    string palabra2;
+
+    while (std::getline(*(this->streamPersonas), linea)) {
             
         std::istringstream streamLinea(linea);
 
@@ -14,6 +20,15 @@ planilla::planilla(istream *streamEntradaNuevo) {
         streamLinea >> nuevoEmpleado;
 
         this->agregarEmpleado(nuevoEmpleado);
+    }
+
+    while (std::getline(*(this->streamNomina), linea)) {
+            
+        std::istringstream streamLinea(linea);
+
+        while (streamLinea >> palabra >> palabra2){
+            
+        }
     }
 
 }

@@ -6,6 +6,8 @@ all:
 	g++ $(FLAGS) src/planilla.cpp -o bin/planilla.o
 	g++ $(FLAGS) src/main.cpp -o bin/main.o
 	cp ./personas.txt ./bin/personas.txt
+	cp ./nomina.txt ./bin/nomina.txt
+	cp ./horastrabajadas.txt ./bin/horastrabajadas.txt
 	g++ -g -o bin/tarea2 bin/empleado.o bin/planilla.o bin/main.o
 
 test:
