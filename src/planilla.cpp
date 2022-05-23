@@ -3,7 +3,18 @@
 #include <sstream>
 #include <string>
 
-planilla::planilla() {
+planilla::planilla(istream *streamEntradaNuevo) {
+    this->streamEntrada = streamEntradaNuevo;
+    string linea;
+    while (std::getline(*(this->streamEntrada), linea)) {
+            
+        std::istringstream streamLinea(linea);
+
+        empleado *nuevoEmpleado = new empleado();
+        streamLinea >> nuevoEmpleado;
+
+        this->agregarEmpleado(nuevoEmpleado);
+    }
 
 }
 
@@ -34,8 +45,8 @@ empleado* planilla::obtenerEmpleado(int idBuscado){
     return empleadoEncontrado;
 }
 
-ostream& operator << (ostream &o, planilla *planilla)
-{
+ostream& operator << (ostream &o, planilla *planilla){
+
     int cantidad = planilla->indiceEmpleados.size(); 
 
     for (int i = 1; i <= cantidad; i++){
@@ -47,22 +58,4 @@ ostream& operator << (ostream &o, planilla *planilla)
     }
 
     return o;
-}
-
-istream& operator >> (istream &i, planilla *planilla)
-{
-    
-    string linea;
-
-    while (std::getline(i, linea)) {
-        
-        std::istringstream streamLinea(linea);
-
-        empleado *nuevoEmpleado = new empleado();
-        streamLinea >> nuevoEmpleado;
-
-        planilla->agregarEmpleado(nuevoEmpleado);
-    }
-
-    return i;
 }

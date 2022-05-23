@@ -9,21 +9,19 @@
 using namespace std;
 
 int main() {
-    
-    planilla *laPlanilla = new planilla();
 
-    ifstream archivoPrueba("personas.txt", std::ifstream::in);
+    ifstream personas("personas.txt", std::ifstream::in);
     
 
-    if (!archivoPrueba.is_open())
+    if (!personas.is_open())
     {
         std::cerr << "Error abriendo personas.txt" << std::endl;
         return -1;
     }
 
-    archivoPrueba >> laPlanilla;
+    planilla *laPlanilla = new planilla(&personas);
 
-    archivoPrueba.close();
+    personas.close();
     
     ofstream ofs("Reporte.csv", std::ifstream::out);
 
