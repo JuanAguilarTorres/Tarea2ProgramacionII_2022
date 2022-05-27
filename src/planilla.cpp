@@ -9,8 +9,10 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
     this->streamHoras = streamHorasNuevo;
     
     string linea;
-    string palabra;
-    string palabra2;
+    string idEmpleado;
+    string monto;
+    string horas;
+    string montoHoras;
 
     while (std::getline(*(this->streamPersonas), linea)) {
             
@@ -26,11 +28,20 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
             
         std::istringstream streamLinea(linea);
 
-        while (streamLinea >> palabra >> palabra2){
-            
+        while (streamLinea >> idEmpleado >> monto){
+            this->indiceNomina.insert(std::pair<string,string>(idEmpleado, monto));
         }
     }
 
+    while (std::getline(*(this->streamHoras), linea)) {
+            
+        std::istringstream streamLinea(linea);
+
+        while (streamLinea >> idEmpleado >> monto >> horas){
+            montoHoras = monto + " " + horas;
+            this->indiceHoras.insert(std::pair<string,string>(idEmpleado, montoHoras));
+        }
+    }
 }
 
 planilla::~planilla() {

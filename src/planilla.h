@@ -14,8 +14,8 @@ class planilla {
     
     empleado *empleadoRaiz;
     map<int, empleado*> indiceEmpleados;
-    map<int, string*> indiceNomina;
-    map<int, string*> indiceHoras;
+    map<string, string> indiceNomina;
+    map<string, string> indiceHoras;
     
     public:
     planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, istream *streamHorasNuevo);
