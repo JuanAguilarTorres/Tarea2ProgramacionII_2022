@@ -16,7 +16,6 @@ class empleado {
     string email;
     int idSupervisor;
     vector<empleado *> subEmpleados;
-    int monto;
 
     public:
 
