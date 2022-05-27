@@ -1,9 +1,5 @@
 #include "empleado.h"
 
-empleado::empleado() {
-
-}
-
 empleado::~empleado() {
     for (empleado *subEmpleado : this->subEmpleados){
         delete subEmpleado;
@@ -25,16 +21,4 @@ string empleado::ObtenerNombreCompleto(){
 
 void empleado::insertarSub(empleado *subEmpleado){
     this->subEmpleados.push_back(subEmpleado);
-}
-
-
-ostream& operator << (ostream &o, const empleado *empleado){
-    o << empleado->idEmpleado << "," << empleado->nombre << " " << empleado->apellido;
-
-    return o;
-}
-
-istream& operator >> (istream &i, empleado *empleado){
-    i >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor;
-    return i;
 }

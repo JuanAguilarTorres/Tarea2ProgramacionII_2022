@@ -4,32 +4,31 @@
 #include <string>
 
 planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, istream *streamHorasNuevo) {
+
     this->streamPersonas = streamPersonasNuevo;
     this->streamNomina = streamNominaNuevo;
     this->streamHoras = streamHorasNuevo;
     
     string linea;
-    string idEmpleado;
+
+    int idEmpleado;
+    string nombre;
+    string apellido;
+    string email;
+    int tipoEmpleado;
+    int idSupervisor;
+
     string monto;
     string horas;
+
     string montoHoras;
-
-    while (std::getline(*(this->streamPersonas), linea)) {
-            
-        std::istringstream streamLinea(linea);
-
-        empleado *nuevoEmpleado = new empleado();
-        streamLinea >> nuevoEmpleado;
-
-        this->agregarEmpleado(nuevoEmpleado);
-    }
 
     while (std::getline(*(this->streamNomina), linea)) {
             
         std::istringstream streamLinea(linea);
 
         while (streamLinea >> idEmpleado >> monto){
-            this->indiceNomina.insert(std::pair<string,string>(idEmpleado, monto));
+            this->indiceNomina.insert(std::pair<int,string>(idEmpleado, monto));
         }
     }
 
@@ -39,9 +38,30 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
 
         while (streamLinea >> idEmpleado >> monto >> horas){
             montoHoras = monto + " " + horas;
-            this->indiceHoras.insert(std::pair<string,string>(idEmpleado, montoHoras));
+            this->indiceHoras.insert(std::pair<int,string>(idEmpleado, montoHoras));
         }
     }
+
+    
+    while (std::getline(*(this->streamPersonas), linea)) {
+            
+        std::istringstream streamLinea(linea);
+
+        while (streamLinea >> idEmpleado >> nombre >> apellido >> email >> tipoEmpleado >> idSupervisor){
+            if (tipoEmpleado == 1)
+            {
+                
+            }else if (tipoEmpleado == 2)
+            {
+
+            }
+            
+            
+        }
+        empleado *nuevoEmpleado = new empleado();
+        this->agregarEmpleado(nuevoEmpleado);
+    }
+
 }
 
 planilla::~planilla() {

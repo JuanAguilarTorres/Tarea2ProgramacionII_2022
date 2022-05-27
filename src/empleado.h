@@ -9,26 +9,24 @@ using namespace std;
 
 class empleado {
 
+    protected:
     int idEmpleado;
     string nombre;
     string apellido;
     string email;
-    int tipoEmpleado;
     int idSupervisor;
     vector<empleado *> subEmpleados;
+    int monto;
 
     public:
-    empleado();
-    ~empleado();
 
-    int ObtenerIdEmpleado();
-    int ObtenerIdSupervisor();
-    string ObtenerNombreCompleto();
-
-    void insertarSub(empleado *subEmpleado);
-
-    friend istream& operator >> (istream &o, empleado *empleado);
-    friend ostream& operator << (ostream &o, const empleado *empleado);
+    virtual ~empleado();
+    virtual float CalculoPago() = 0;
+    virtual int ObtenerIdEmpleado();
+    virtual int ObtenerIdSupervisor();
+    virtual string ObtenerNombreCompleto();
+    virtual void insertarSub(empleado *subEmpleado);
+    
 };
 
 #endif
