@@ -23,3 +23,7 @@ string empleado::obtenerNombreCompleto(){
 void empleado::insertarSub(empleado *subEmpleado){
     this->subEmpleados.push_back(subEmpleado);
 }
+
+string empleado::obtenerInformacion(){
+    return this->idEmpleado + "," + this->nombre +  " " + this->apellido;
+}

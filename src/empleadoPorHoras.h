@@ -12,10 +12,6 @@ class empleadoPorHoras : public empleado {
     empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoBruto);
 
     virtual int calculoPago();
-    virtual int obtenerIdEmpleado();
-    virtual int obtenerIdSupervisor();
-    virtual string obtenerNombreCompleto();
-    virtual void insertarSub(empleado *subEmpleado);
 
 };
 

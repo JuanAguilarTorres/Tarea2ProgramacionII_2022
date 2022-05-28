@@ -8,6 +8,7 @@ empleadoAsalariado::empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, 
     this->apellido = nuevoApellido;
     this->idSupervisor = nuevoIdSupervisor;
     this->pagoBruto = nuevoPagoBruto;
+    this->pagoNeto = nuevoPagoBruto*(0.93);
 }
 
 int empleadoAsalariado::calculoPago()
@@ -17,5 +18,5 @@ int empleadoAsalariado::calculoPago()
 
 int empleadoAsalariado::calculoNeto()
 {
-    return 0;
+    return this->pagoNeto;
 }

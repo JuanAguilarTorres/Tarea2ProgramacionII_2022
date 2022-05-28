@@ -103,7 +103,7 @@ ostream& operator << (ostream &o, planilla *planilla){
         empleado *empleadoActual = planilla->obtenerEmpleado(i);
         empleado *supervisorActual = planilla->obtenerEmpleado(empleadoActual->obtenerIdSupervisor());
 
-        o << empleadoActual << "," << supervisorActual->obtenerNombreCompleto() << endl;
+        o << empleadoActual->obtenerInformacion() << "," << supervisorActual->obtenerNombreCompleto() << endl;
     }
 
     return o;
