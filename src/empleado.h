@@ -16,6 +16,7 @@ class empleado {
     string email;
     int idSupervisor;
     vector<empleado *> subEmpleados;
+    int pagoBruto;
 
     public:
 
@@ -25,7 +26,7 @@ class empleado {
     virtual int obtenerIdSupervisor();
     virtual string obtenerNombreCompleto();
     virtual void insertarSub(empleado *subEmpleado);
-    
+
 };
 
 #endif

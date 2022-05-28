@@ -7,11 +7,9 @@ using namespace std;
 
 class empleadoPorHoras : public empleado {
 
-    int costoPorHoras;
-    int horasMes;
 
     public:
-    empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoCostoPorHoras, int nuevaHorasMes);
+    empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoBruto);
 
     virtual int calculoPago();
     virtual int obtenerIdEmpleado();

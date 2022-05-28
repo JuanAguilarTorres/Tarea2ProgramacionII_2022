@@ -18,17 +18,17 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
     int tipoEmpleado;
     int idSupervisor;
 
-    string monto;
-    string horas;
+    int monto;
+    int horas;
 
-    string montoHoras;
+    int montoHoras;
 
     while (std::getline(*(this->streamNomina), linea)) {
             
         std::istringstream streamLinea(linea);
 
         while (streamLinea >> idEmpleado >> monto){
-            this->indiceNomina.insert(std::pair<int,string>(idEmpleado, monto));
+            this->indiceNomina.insert(std::pair<int,int>(idEmpleado, monto));
         }
     }
 
@@ -37,8 +37,8 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
         std::istringstream streamLinea(linea);
 
         while (streamLinea >> idEmpleado >> monto >> horas){
-            montoHoras = monto + " " + horas;
-            this->indiceHoras.insert(std::pair<int,string>(idEmpleado, montoHoras));
+            montoHoras = monto * horas;
+            this->indiceHoras.insert(std::pair<int,int>(idEmpleado, montoHoras));
         }
     }
 
@@ -50,16 +50,19 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
         while (streamLinea >> idEmpleado >> nombre >> apellido >> email >> tipoEmpleado >> idSupervisor){
             if (tipoEmpleado == 1)
             {
-                empleadoAsalariado *nuevoEmpleado = new empleadoAsalariado();
+                monto = this->indiceNomina.at(idEmpleado);
+                empleadoAsalariado *nuevoEmpleado = new empleadoAsalariado(idEmpleado, nombre, apellido, idSupervisor, monto);
+                this->agregarEmpleado(nuevoEmpleado);
             }else if (tipoEmpleado == 2)
             {
-
+                monto = this->indiceHoras.at(idEmpleado);
+                empleadoPorHoras *nuevoEmpleado = new empleadoPorHoras(idEmpleado, nombre, apellido, idSupervisor, monto);
+                this->agregarEmpleado(nuevoEmpleado);
             }
             
             
         }
 
-        this->agregarEmpleado(nuevoEmpleado);
     }
 
 }
@@ -69,8 +72,8 @@ planilla::~planilla() {
 }
 
 void planilla::agregarEmpleado(empleado *nuevoEmpleado) {
-    int idSupervisor = nuevoEmpleado->ObtenerIdSupervisor();
-    int idEmpleado = nuevoEmpleado->ObtenerIdEmpleado();
+    int idSupervisor = nuevoEmpleado->obtenerIdSupervisor();
+    int idEmpleado = nuevoEmpleado->obtenerIdEmpleado();
 
     if ( (idSupervisor == 1) && (idEmpleado == 1) ) 
     {
@@ -98,9 +101,9 @@ ostream& operator << (ostream &o, planilla *planilla){
     for (int i = 1; i <= cantidad; i++){
 
         empleado *empleadoActual = planilla->obtenerEmpleado(i);
-        empleado *supervisorActual = planilla->obtenerEmpleado(empleadoActual->ObtenerIdSupervisor());
+        empleado *supervisorActual = planilla->obtenerEmpleado(empleadoActual->obtenerIdSupervisor());
 
-        o << empleadoActual << "," << supervisorActual->ObtenerNombreCompleto() << endl;
+        o << empleadoActual << "," << supervisorActual->obtenerNombreCompleto() << endl;
     }
 
     return o;

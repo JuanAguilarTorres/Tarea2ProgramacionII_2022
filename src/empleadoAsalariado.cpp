@@ -2,20 +2,20 @@
 
 using namespace std;
 
-empleadoAsalariado::empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoMensual){
+empleadoAsalariado::empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoBruto){
     this->idEmpleado = nuevoIdEmpleado;
     this->nombre = nuevoNombre;
     this->apellido = nuevoApellido;
     this->idSupervisor = nuevoIdSupervisor;
-    this->pagoMensual = nuevoPagoMensual;
+    this->pagoBruto = nuevoPagoBruto;
 }
 
 int empleadoAsalariado::calculoPago()
 {
-    return this->pagoMensual;
+    return this->pagoBruto;
 }
 
-int empleadoAsalariado::calculoBruto()
+int empleadoAsalariado::calculoNeto()
 {
-    return this->pagoMensual;
+    return 0;
 }
