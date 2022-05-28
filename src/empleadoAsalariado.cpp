@@ -11,12 +11,12 @@ empleadoAsalariado::empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, 
     this->pagoNeto = nuevoPagoBruto*(0.93);
 }
 
-int empleadoAsalariado::calculoPago()
+float empleadoAsalariado::calculoPagoBruto()
 {
     return this->pagoBruto;
 }
 
-int empleadoAsalariado::calculoNeto()
+float empleadoAsalariado::calculoPago()
 {
     return this->pagoNeto;
 }

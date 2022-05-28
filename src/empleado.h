@@ -16,12 +16,12 @@ class empleado {
     string email;
     int idSupervisor;
     vector<empleado *> subEmpleados;
-    int pagoBruto;
+    float pagoNeto;
 
     public:
 
     virtual ~empleado();
-    virtual int calculoPago() = 0;
+    virtual float calculoPago() = 0;
     virtual int obtenerIdEmpleado();
     virtual int obtenerIdSupervisor();
     virtual string obtenerNombreCompleto();

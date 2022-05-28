@@ -25,5 +25,5 @@ void empleado::insertarSub(empleado *subEmpleado){
 }
 
 string empleado::obtenerInformacion(){
-    return this->idEmpleado + "," + this->nombre +  " " + this->apellido;
+    return to_string(this->idEmpleado) + "," + this->nombre +  " " + this->apellido;
 }

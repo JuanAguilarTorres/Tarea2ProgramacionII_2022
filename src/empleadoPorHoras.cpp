@@ -2,15 +2,15 @@
 
 using namespace std;
 
-empleadoPorHoras::empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoBruto){
+empleadoPorHoras::empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoNeto){
     this->idEmpleado = nuevoIdEmpleado;
     this->nombre = nuevoNombre;
     this->apellido = nuevoApellido;
     this->idSupervisor = nuevoIdSupervisor;
-    this->pagoBruto = nuevoPagoBruto;
+    this->pagoNeto = nuevoPagoNeto;
 }
 
-int empleadoPorHoras::calculoPago()
+float empleadoPorHoras::calculoPago()
 {
-    return this->pagoBruto;
+    return this->pagoNeto;
 }
