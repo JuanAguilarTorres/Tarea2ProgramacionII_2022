@@ -50,7 +50,7 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
         while (streamLinea >> idEmpleado >> nombre >> apellido >> email >> tipoEmpleado >> idSupervisor){
             if (tipoEmpleado == 1)
             {
-                
+                empleadoAsalariado *nuevoEmpleado = new empleadoAsalariado();
             }else if (tipoEmpleado == 2)
             {
 
@@ -58,7 +58,7 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
             
             
         }
-        empleado *nuevoEmpleado = new empleado();
+
         this->agregarEmpleado(nuevoEmpleado);
     }
 

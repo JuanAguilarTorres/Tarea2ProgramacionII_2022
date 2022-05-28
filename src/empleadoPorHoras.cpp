@@ -11,7 +11,7 @@ empleadoPorHoras::empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, stri
     this->horasMes = nuevaHorasMes;
 }
 
-float empleadoPorHoras::CalculoPago()
+int empleadoPorHoras::calculoPago()
 {
     return this->costoPorHoras * this->horasMes;
 }

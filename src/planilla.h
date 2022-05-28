@@ -2,6 +2,8 @@
 #define PLANILLA_H
 
 #include "empleado.h"
+#include "empleadoAsalariado.h"
+#include "empleadoPorHoras.h"
 #include <map>
 
 using namespace std;

@@ -13,10 +13,10 @@ class empleadoPorHoras : public empleado {
     public:
     empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoCostoPorHoras, int nuevaHorasMes);
 
-    virtual float CalculoPago();
-    virtual int ObtenerIdEmpleado();
-    virtual int ObtenerIdSupervisor();
-    virtual string ObtenerNombreCompleto();
+    virtual int calculoPago();
+    virtual int obtenerIdEmpleado();
+    virtual int obtenerIdSupervisor();
+    virtual string obtenerNombreCompleto();
     virtual void insertarSub(empleado *subEmpleado);
 
 };
