@@ -18,17 +18,17 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
     int tipoEmpleado;
     int idSupervisor;
 
-    int monto;
+    float monto;
     int horas;
 
-    int montoHoras;
+    float montoHoras;
 
     while (std::getline(*(this->streamNomina), linea)) {
             
         std::istringstream streamLinea(linea);
 
         while (streamLinea >> idEmpleado >> monto){
-            this->indiceNomina.insert(std::pair<int,int>(idEmpleado, monto));
+            this->indiceNomina.insert(std::pair<int,float>(idEmpleado, monto));
         }
     }
 
@@ -38,7 +38,7 @@ planilla::planilla(istream *streamPersonasNuevo, istream *streamNominaNuevo, ist
 
         while (streamLinea >> idEmpleado >> monto >> horas){
             montoHoras = monto * horas;
-            this->indiceHoras.insert(std::pair<int,int>(idEmpleado, montoHoras));
+            this->indiceHoras.insert(std::pair<int,float>(idEmpleado, montoHoras));
         }
     }
 
@@ -103,7 +103,7 @@ ostream& operator << (ostream &o, planilla *planilla){
         empleado *empleadoActual = planilla->obtenerEmpleado(i);
         empleado *supervisorActual = planilla->obtenerEmpleado(empleadoActual->obtenerIdSupervisor());
 
-        o << empleadoActual->obtenerInformacion() << "," << supervisorActual->obtenerNombreCompleto() << endl;
+        o << empleadoActual->obtenerInformacion() << "," << supervisorActual->obtenerNombreCompleto() << ","  << to_string(empleadoActual->calculoPago()) <<  endl;
     }
 
     return o;
