@@ -94,6 +94,45 @@ empleado* planilla::obtenerEmpleado(int idBuscado){
     return empleadoEncontrado;
 }
 
+float planilla::obtenerSubtotal(){
+    float subtotal = 0;
+    int cantidad = this->indiceEmpleados.size(); 
+
+    for (int i = 1; i <= cantidad; i++){
+
+        empleado *empleadoActual = this->obtenerEmpleado(i);
+        subtotal += empleadoActual->calculoPagoNeto();
+    }
+
+    return subtotal;
+}
+
+float planilla::obtenerImpuestos(){
+    float impuestos = 0;
+    int cantidad = this->indiceEmpleados.size(); 
+
+    for (int i = 1; i <= cantidad; i++){
+
+        empleado *empleadoActual = this->obtenerEmpleado(i);
+        impuestos += empleadoActual->calculoImpuestos();
+    }
+
+    return impuestos;
+}
+
+float planilla::obtenerTotal(){
+    float total;
+    int cantidad = this->indiceEmpleados.size(); 
+
+    for (int i = 1; i <= cantidad; i++){
+
+        empleado *empleadoActual = this->obtenerEmpleado(i);
+        total += empleadoActual->calculoPagoBruto();
+    }
+
+    return total;
+}
+
 ostream& operator << (ostream &o, planilla *planilla){
 
     int cantidad = planilla->indiceEmpleados.size(); 
@@ -103,7 +142,7 @@ ostream& operator << (ostream &o, planilla *planilla){
         empleado *empleadoActual = planilla->obtenerEmpleado(i);
         empleado *supervisorActual = planilla->obtenerEmpleado(empleadoActual->obtenerIdSupervisor());
 
-        o << empleadoActual->obtenerInformacion() << "," << supervisorActual->obtenerNombreCompleto() << ","  << to_string(empleadoActual->calculoPago()) <<  endl;
+        o << empleadoActual->obtenerInformacion() << "," << supervisorActual->obtenerNombreCompleto() << ","  << to_string(empleadoActual->calculoPagoNeto()) <<  endl;
     }
 
     return o;

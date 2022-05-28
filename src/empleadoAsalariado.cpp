@@ -16,7 +16,12 @@ float empleadoAsalariado::calculoPagoBruto()
     return this->pagoBruto;
 }
 
-float empleadoAsalariado::calculoPago()
+float empleadoAsalariado::calculoPagoNeto()
 {
     return this->pagoNeto;
+}
+
+float empleadoAsalariado::calculoImpuestos()
+{
+    return (this->pagoBruto) - (this->pagoNeto);
 }

@@ -10,7 +10,17 @@ empleadoPorHoras::empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, stri
     this->pagoNeto = nuevoPagoNeto;
 }
 
-float empleadoPorHoras::calculoPago()
+float empleadoPorHoras::calculoPagoNeto()
 {
     return this->pagoNeto;
+}
+
+float empleadoPorHoras::calculoPagoBruto()
+{
+    return this->pagoNeto;
+}
+
+float empleadoPorHoras::calculoImpuestos()
+{
+    return 0;
 }

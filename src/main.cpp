@@ -51,7 +51,7 @@ int main() {
         return -1;
     }
 
-    ofs << "Reporte: " << endl << laPlanilla;
+    ofs << "Reporte: " << endl << laPlanilla << endl << "Resumen: " << endl << to_string(laPlanilla->obtenerSubtotal()) << "," << to_string(laPlanilla->obtenerImpuestos()) << "," << to_string(laPlanilla->obtenerTotal());
 
     ofs.close();
 

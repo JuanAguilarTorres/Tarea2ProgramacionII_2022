@@ -13,7 +13,8 @@ class empleadoAsalariado : public empleado {
     empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int pagoBruto);
 
     virtual float calculoPagoBruto();
-    virtual float calculoPago();
+    virtual float calculoPagoNeto();
+    virtual float calculoImpuestos();
 };
 
 #endif

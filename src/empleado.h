@@ -21,7 +21,9 @@ class empleado {
     public:
 
     virtual ~empleado();
-    virtual float calculoPago() = 0;
+    virtual float calculoPagoNeto() = 0;
+    virtual float calculoPagoBruto() = 0;
+    virtual float calculoImpuestos() = 0;
     virtual int obtenerIdEmpleado();
     virtual int obtenerIdSupervisor();
     virtual string obtenerNombreCompleto();

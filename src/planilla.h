@@ -25,6 +25,9 @@ class planilla {
 
     void agregarEmpleado(empleado *nuevoEmpleado);
     empleado* obtenerEmpleado(int idBuscado);
+    float obtenerSubtotal();
+    float obtenerImpuestos();
+    float obtenerTotal();
 
     friend ostream& operator << (ostream &o, planilla *planilla);
 };
