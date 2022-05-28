@@ -6,15 +6,15 @@ empleado::~empleado() {
     }
 }
 
-int empleado::ObtenerIdSupervisor(){
+int empleado::obtenerIdSupervisor(){
     return this->idSupervisor;
 }
 
-int empleado::ObtenerIdEmpleado(){
+int empleado::obtenerIdEmpleado(){
     return this->idEmpleado;
 }
 
-string empleado::ObtenerNombreCompleto(){
+string empleado::obtenerNombreCompleto(){
     return this->nombre + " " + this->apellido;
 }
 

@@ -20,10 +20,10 @@ class empleado {
     public:
 
     virtual ~empleado();
-    virtual float CalculoPago() = 0;
-    virtual int ObtenerIdEmpleado();
-    virtual int ObtenerIdSupervisor();
-    virtual string ObtenerNombreCompleto();
+    virtual int calculoPago() = 0;
+    virtual int obtenerIdEmpleado();
+    virtual int obtenerIdSupervisor();
+    virtual string obtenerNombreCompleto();
     virtual void insertarSub(empleado *subEmpleado);
     
 };
