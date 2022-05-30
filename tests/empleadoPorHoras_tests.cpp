@@ -113,14 +113,14 @@ namespace
         vector<empleado *> subEmpleados = empleado1->obtenerSubEmpleados();
         empleado *empleadoActual = subEmpleados[0];
 
-        delete empleado1;
-        delete empleado2;
-        delete empleadoActual;
         // Assert - valide los resultados
         EXPECT_EQ(empleado2, empleadoActual);
+
+        delete empleado1;
+
     }
 
-    TEST(empleadoPorHoras_Test, Test_Obtener_Información_de_Salida)
+    TEST(empleadoPorHoras_Test, Test_Obtener_Informacion_de_Salida)
     {
         /// AAA
 
@@ -129,7 +129,7 @@ namespace
 
         // Act - ejecute la operación
         std::string actual = empleado->obtenerInformacion();
-        std::string esperado = "1,Juan Aguilar";
+        std::string esperado = "2,Juan Aguilar";
 
         delete empleado;
         // Assert - valide los resultados
