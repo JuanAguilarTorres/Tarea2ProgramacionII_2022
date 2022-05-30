@@ -134,4 +134,27 @@ namespace
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
     }
+
+    TEST(empleadoAsalariado_Test, Test_Obtener_SubEmpleado)
+    {
+        /// AAA
+
+        // Arrange - configurar el escenario
+        empleadoAsalariado *empleado1 = new empleadoAsalariado(1, "Juan", "Aguilar", 1, 500);
+        empleadoAsalariado *empleado2 = new empleadoAsalariado(2, "Juan", "Aguilar", 1, 250);
+        empleadoAsalariado *empleado3 = new empleadoAsalariado(3, "Juan", "Aguilar", 1, 250);
+
+        // Act - ejecute la operación
+        empleado1->insertarSub(empleado2);
+        empleado1->insertarSub(empleado3);
+
+        vector<empleado *> subEmpleados = empleado1->obtenerSubEmpleados();
+        empleado *empleadoActual = subEmpleados[1];
+
+        // Assert - valide los resultados
+        EXPECT_EQ(empleado3, empleadoActual);
+
+        delete empleado1;
+    }
 }
+
