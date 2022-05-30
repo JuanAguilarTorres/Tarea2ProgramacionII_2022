@@ -8,7 +8,7 @@ namespace
         /// AAA
 
         // Arrange - configurar el escenario
-        string stringPersonas = "1 Juan Aguilar juan_aguilar@biz.com 1 1";
+        string stringPersonas = "1 Juan Aguilar juan_aguilar@biz.com 2 1";
         istringstream streamPersonas (stringPersonas);
 
         string stringNomina = "";
@@ -24,9 +24,9 @@ namespace
         empleadoPorHoras *empleadoEsperado = new empleadoPorHoras(1, "Juan", "Aguilar", 1, 500);
         empleado *empleadoActual = laPlanilla->obtenerEmpleado(1);
 
-        delete laPlanilla;
         // Assert - valide los resultados
-        EXPECT_EQ(empleadoEsperado, empleadoActual);
+        EXPECT_EQ(empleadoEsperado->obtenerNombreCompleto(), empleadoActual->obtenerNombreCompleto());
+        delete laPlanilla;
     }
 
     TEST(planilla_Test, Test_Agregar_Empleado)
@@ -40,7 +40,7 @@ namespace
         string stringNomina = "";
         istringstream streamNomina (stringNomina);
 
-        string stringHoras = "";
+        string stringHoras = "1 250 2";
         istringstream streamHoras (stringHoras);
 
         planilla *laPlanilla = new planilla(&streamPersonas, &streamNomina, &streamHoras);
@@ -51,9 +51,9 @@ namespace
         laPlanilla->agregarEmpleado(empleadoEsperado);
         empleado *empleadoActual = laPlanilla->obtenerEmpleado(1);
 
-        delete laPlanilla;
         // Assert - valide los resultados
         EXPECT_EQ(empleadoEsperado, empleadoActual);
+        delete laPlanilla;
     }
 
 
@@ -62,7 +62,7 @@ namespace
         /// AAA
 
         // Arrange - configurar el escenario
-        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 1 1";
+        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 2 1";
         istringstream streamPersonas (stringPersonas);
 
         string stringNomina = "1 4500";
@@ -77,9 +77,9 @@ namespace
         float actual = laPlanilla->obtenerSubtotal();
         float esperado = (4500)*(0.93) + (40)*(50);
 
-        delete laPlanilla;
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperado, actual);
+        delete laPlanilla;
     }
 
     TEST(planilla_Test, Test_Obtener_Impuestos)
@@ -87,7 +87,7 @@ namespace
         /// AAA
 
         // Arrange - configurar el escenario
-        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 1 1";
+        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 2 1";
         istringstream streamPersonas (stringPersonas);
 
         string stringNomina = "1 4500";
@@ -102,9 +102,9 @@ namespace
         float actual = laPlanilla->obtenerImpuestos();
         float esperado = (4500)*(0.07);
 
-        delete laPlanilla;
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperado, actual);
+        delete laPlanilla;
     }
 
     TEST(planilla_Test, Test_Obtener_Total)
@@ -112,7 +112,7 @@ namespace
         /// AAA
 
         // Arrange - configurar el escenario
-        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 1 1";
+        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 2 1";
         istringstream streamPersonas (stringPersonas);
 
         string stringNomina = "1 4500";
@@ -127,9 +127,9 @@ namespace
         float actual = laPlanilla->obtenerTotal();
         float esperado = (4500) + (40)*(50);
 
-        delete laPlanilla;
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperado, actual);
+        delete laPlanilla;
     }
 
     TEST(planilla_Test, Test_Operador_de_Salida)
@@ -137,7 +137,7 @@ namespace
         /// AAA
 
         // Arrange - configurar el escenario
-        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 1 1";
+        string stringPersonas = "1 Denis Tyler denis_tyler@biz.com 1 1 \n 2 Clarissa Parker clarissa_parker@biz.com 2 1";
         istringstream streamPersonas (stringPersonas);
 
         string stringNomina = "1 4500";
@@ -152,9 +152,10 @@ namespace
         string actual = "a";
         string esperado = "b";
 
-        delete laPlanilla;
+
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
+        delete laPlanilla;
     }
 
 
