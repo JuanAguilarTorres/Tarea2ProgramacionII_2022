@@ -135,6 +135,8 @@ float planilla::obtenerTotal(){
 
 ostream& operator << (ostream &o, planilla *planilla){
 
+    o << "Reporte: " << endl;
+
     int cantidad = planilla->indiceEmpleados.size(); 
 
     for (int i = 1; i <= cantidad; i++){
@@ -144,6 +146,8 @@ ostream& operator << (ostream &o, planilla *planilla){
 
         o << empleadoActual->obtenerInformacion() << "," << supervisorActual->obtenerNombreCompleto() << ","  << to_string(empleadoActual->calculoPagoNeto()) <<  endl;
     }
+
+    o << endl << "Resumen: " << endl << to_string(planilla->obtenerSubtotal()) << "," << to_string(planilla->obtenerImpuestos()) << "," << to_string(planilla->obtenerTotal());
 
     return o;
 }

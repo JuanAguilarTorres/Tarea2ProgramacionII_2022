@@ -149,9 +149,12 @@ namespace
         planilla *laPlanilla = new planilla(&streamPersonas, &streamNomina, &streamHoras);
 
         // Act - ejecute la operación
-        string actual = "a";
-        string esperado = "b";
+        string actual = "";
+        ostringstream ostreamActual(actual);
+        ostreamActual << laPlanilla;
+        actual = ostreamActual.str();
 
+        string esperado = "Reporte: \n1,Denis Tyler,Denis Tyler,4185.000000\n2,Clarissa Parker,Denis Tyler,2000.000000\n\nResumen: \n6185.000000,315.000000,6500.000000";
 
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
