@@ -1,4 +1,4 @@
-# Tarea1ProgramacionII_2022
+# Tarea2ProgramacionII_2022
 Estudiante: Juan Carlos Aguilar Torres
 
 Para compilar este programa, ejecute esta instrucción:
