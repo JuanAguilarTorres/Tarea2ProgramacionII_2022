@@ -27,3 +27,7 @@ void empleado::insertarSub(empleado *subEmpleado){
 string empleado::obtenerInformacion(){
     return to_string(this->idEmpleado) + "," + this->nombre +  " " + this->apellido;
 }
+
+vector<empleado *> empleado::obtenerSubEmpleados(){
+    return this->subEmpleados;
+}

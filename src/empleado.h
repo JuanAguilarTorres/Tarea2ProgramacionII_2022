@@ -29,6 +29,7 @@ class empleado {
     virtual string obtenerNombreCompleto();
     virtual void insertarSub(empleado *subEmpleado);
     virtual string obtenerInformacion();
+    virtual vector<empleado *> obtenerSubEmpleados();
 
 };
 
