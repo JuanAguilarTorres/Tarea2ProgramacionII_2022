@@ -7,10 +7,10 @@ using namespace std;
 
 class empleadoAsalariado : public empleado {
 
-    int pagoBruto;
+    float pagoBruto;
 
     public:
-    empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int pagoBruto);
+    empleadoAsalariado(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, float pagoBruto);
 
     virtual float calculoPagoBruto();
     virtual float calculoPagoNeto();

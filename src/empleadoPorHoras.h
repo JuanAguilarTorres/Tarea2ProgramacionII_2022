@@ -9,7 +9,7 @@ class empleadoPorHoras : public empleado {
 
 
     public:
-    empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoNeto);
+    empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, float nuevoPagoNeto);
 
     virtual float calculoPagoNeto();
     virtual float calculoPagoBruto();

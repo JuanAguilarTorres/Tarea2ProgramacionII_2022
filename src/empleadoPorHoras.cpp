@@ -2,7 +2,7 @@
 
 using namespace std;
 
-empleadoPorHoras::empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, int nuevoPagoNeto){
+empleadoPorHoras::empleadoPorHoras(int nuevoIdEmpleado, string nuevoNombre, string nuevoApellido, int nuevoIdSupervisor, float nuevoPagoNeto){
     this->idEmpleado = nuevoIdEmpleado;
     this->nombre = nuevoNombre;
     this->apellido = nuevoApellido;
