@@ -18,10 +18,10 @@ test:
 	g++ $(FLAGS) src/empleadoAsalariado.cpp -o bin/empleadoAsalariado.o
 	g++ $(FLAGS) src/empleadoPorHoras.cpp -o bin/empleadoPorHoras.o
 	g++ $(FLAGS) src/planilla.cpp -o bin/planilla.o
-	g++ $(FLAGS) src/empleadoAsalariado_tests.cpp -o bin/empleadoAsalariado_tests.o
-	g++ $(FLAGS) src/empleadoPorHoras_tests.cpp -o bin/empleadoPorHoras_tests.o
-	g++ $(FLAGS) src/planilla_test.cpp -o bin/planilla_test.o
-	g++ -g -o bin/tests bin/empleado.o bin/empleadoAsalariado.o bin/empleadoPorHoras.o bin/planilla.o bin/empleadoAsalariado_tests.o bin/empleadoPorHoras_tests.o bin/planilla_test.o -lgtest -lgtest_main -lpthread
+	g++ $(FLAGS) tests/empleadoAsalariado_tests.cpp -o bin/empleadoAsalariado_tests.o
+	g++ $(FLAGS) tests/empleadoPorHoras_tests.cpp -o bin/empleadoPorHoras_tests.o
+	g++ $(FLAGS) tests/planilla_tests.cpp -o bin/planilla_tests.o
+	g++ -g -o bin/tests bin/empleado.o bin/empleadoAsalariado.o bin/empleadoPorHoras.o bin/planilla.o bin/empleadoAsalariado_tests.o bin/empleadoPorHoras_tests.o bin/planilla_tests.o -lgtest -lgtest_main -lpthread
 
 
 clean:
