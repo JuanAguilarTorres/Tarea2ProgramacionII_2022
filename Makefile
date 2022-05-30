@@ -14,8 +14,14 @@ all:
 
 test:
 	mkdir -p bin
-	g++ $(FLAGS) tests/test_.cpp -o bin/test_.o
-	g++ -g -o bin/tests bin/.o -lgtest -lgtest_main -lpthread
+	g++ $(FLAGS) src/empleado.cpp -o bin/empleado.o
+	g++ $(FLAGS) src/empleadoAsalariado.cpp -o bin/empleadoAsalariado.o
+	g++ $(FLAGS) src/empleadoPorHoras.cpp -o bin/empleadoPorHoras.o
+	g++ $(FLAGS) src/planilla.cpp -o bin/planilla.o
+	g++ $(FLAGS) src/empleadoAsalariado_tests.cpp -o bin/empleadoAsalariado_tests.o
+	g++ $(FLAGS) src/empleadoPorHoras_tests.cpp -o bin/empleadoPorHoras_tests.o
+	g++ $(FLAGS) src/planilla_test.cpp -o bin/planilla_test.o
+	g++ -g -o bin/tests bin/empleado.o bin/empleadoAsalariado.o bin/empleadoPorHoras.o bin/planilla.o bin/empleadoAsalariado_tests.o bin/empleadoPorHoras_tests.o bin/planilla_test.o -lgtest -lgtest_main -lpthread
 
 
 clean:
