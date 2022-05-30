@@ -14,6 +14,7 @@ namespace
         float actual = empleado->calculoPagoBruto();
         float esperado = 500;
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperado, actual);
     }
@@ -29,6 +30,7 @@ namespace
         float actual = empleado->calculoPagoNeto();
         float esperado = 500;
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperado, actual);
     }
@@ -44,6 +46,7 @@ namespace
         float actual = empleado->calculoImpuestos();
         float esperado = 0;
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperado, actual);
     }
@@ -59,6 +62,7 @@ namespace
         int actual = empleado->obtenerIdEmpleado();
         int esperado = 2;
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
     }
@@ -74,6 +78,7 @@ namespace
         int actual = empleado->obtenerIdSupervisor();
         int esperado = 1;
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
     }
@@ -89,6 +94,7 @@ namespace
         std::string actual = empleado->obtenerNombreCompleto();
         std::string esperado = "Juan Aguilar";
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
     }
@@ -107,6 +113,9 @@ namespace
         vector<empleado *> subEmpleados = empleado1->obtenerSubEmpleados();
         empleado *empleadoActual = subEmpleados[0];
 
+        delete empleado1;
+        delete empleado2;
+        delete empleadoActual;
         // Assert - valide los resultados
         EXPECT_EQ(empleado2, empleadoActual);
     }
@@ -122,6 +131,7 @@ namespace
         std::string actual = empleado->obtenerInformacion();
         std::string esperado = "1,Juan Aguilar";
 
+        delete empleado;
         // Assert - valide los resultados
         EXPECT_EQ(esperado, actual);
     }
